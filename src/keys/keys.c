@@ -40,8 +40,8 @@ static Keychord keychords[] = {
 	{2, {{MODKEY|ShiftMask, XK_f},      {0, XK_g}},     spawn,           SHCMD(GUI_FILEMANAGER) },
 	// Rofi file browser (small)
         {2, {{MODKEY|ShiftMask, XK_f},      {0, XK_f}},     spawn,           SHCMD("rofi -show filebrowser") },
-        // ranger
-        {2, {{MODKEY|ShiftMask, XK_f},      {0, XK_r}},     spawn,           SHCMD(TERMINAL " -e ranger") },
+        // Terminal file manager (ranger)
+        {2, {{MODKEY|ShiftMask, XK_f},      {0, XK_t}},     spawn,           SHCMD(TERMINAL " -e ranger") },
 	/************************************* Start the web browers *************************************/
         // Google chrome stable
 	{2, {{MODKEY, XK_w},                {0, XK_g}},     spawn,           SHCMD(WEBBROWSER) },
@@ -75,7 +75,7 @@ static Keychord keychords[] = {
         {2, {{MODKEY, XK_m},                 {ShiftMask, XK_v}},    spawn,          SHCMD(TERMINAL "nvlc") },
 	/************************************* Start the emoji piker apps *************************************/
 	// Emoji selector (rofi)
-	{1, {{Mod4Mask,                    XK_e}},    spawn,          SHCMD("rofi -show emoji") },
+	{1, {{Mod4Mask,                    XK_e}},    spawn,          SHCMD("rofimoji") },
 	/************************************* dwm keys *************************************/
 	// Full screen mode
 	{1, {{MODKEY,			XK_f}},      fullscreen,     {0} },
@@ -141,6 +141,7 @@ static Keychord keychords[] = {
 	TAGKEYS(                         XK_7,                      6)
 	TAGKEYS(                         XK_8,                      7)
 	TAGKEYS(                         XK_9,                      8)
+        TAGKEYS(                         XK_semicolon,              9)
 	/* ---------------------------------- Control Keys ---------------------------------- */
 	// Brightness controllers (requires xbacklight)
 	{1, {{0,                               XF86XK_MonBrightnessUp}},   spawn, SHCMD("xbacklight -inc 5") },
@@ -161,6 +162,7 @@ static Keychord keychords[] = {
 	/* ---------------------------------- lock Keys ---------------------------------- */
 	// Lock the screen
 	{1, {{MODKEY|ShiftMask,    	       XK_x}},     spawn,          SHCMD("betterlockscreen -l dim") },
+	{1, {{0,                     XF86XK_Suspend}},     spawn,          SHCMD("betterlockscreen -l dim") },
 	// Kill dwm (super + shift + alt + q)
 	{1, {{MODKEY|ShiftMask|Mod1Mask,       XK_q}},      quit,           {0} },
 };
